@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Categories, PostCard, PostWidget } from "../pages/components";
-
+import { getPosts } from '../../services'
 const posts = [
   {
     title: 'Testing',
