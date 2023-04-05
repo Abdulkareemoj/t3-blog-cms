@@ -40,3 +40,28 @@ const result = await request(graphqlAPI, query)
 
 return result.postsConnection.edges
 }
+
+export const getRecentPosts = async ()  => {
+    const query = gql`
+    query MyQuery {
+        postsConnection(orderBy: createdAt_DESC, first: 3) {
+            edges {
+                node {
+                    createdAt
+                    slug
+                    title
+                    description
+                    featuredImage {
+                        url
+                    }
+                    categories {
+                        slug
+                        categoryName
+                    }
+                }
+            }
+        }
+    }
+` 
+    const result = await request(graphqlAPI, query)
+    return result.posts
