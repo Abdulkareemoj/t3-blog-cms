@@ -27,6 +27,13 @@ const PostCard = ({post}) => {
 </div>
     <p className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8"> {post.Description}</p>
       </div>
+	  <div className=" text-center">
+<Link href={`/post/${post.slug}`}>
+<span className="text-white transition duration-500 transform hover:-translate-y-1 font-medium text-lgpx-8 py-3 cursor-pointer ">
+	Continue Reading
+</span>
+</Link>
+	  </div>
     </div>
   )
 }
