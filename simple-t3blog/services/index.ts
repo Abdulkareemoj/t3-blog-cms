@@ -43,52 +43,43 @@ return result.postsConnection.edges
 
 export const getRecentPosts = async ()  => {
     const query = gql`
-    query MyQuery {
-        postsConnection(orderBy: createdAt_DESC, first: 3) {
-            edges {
-                node {
+    query getPostDetails() {
+        posts(
+            orderBy: createdAt_ASC,
+            last: 3) {
+            
                     createdAt
                     slug
                     title
-                    description
                     featuredImage {
                         url
                     }
-                    categories {
-                        slug
-                        categoryName
-                    }
-                }
-            }
         }
     }
 ` 
     const result = await request(graphqlAPI, query)
     return result.posts
 
-
+}
     
-export const getSimilartPosts = async ()  => {
+
+
+export const getSimilarPosts = async ()  => {
     const query = gql`
-    query MyQuery {
-        postsConnection(orderBy: createdAt_DESC, first: 3) {
-            edges {
-                node {
-                    createdAt
+    query getPostDetails ($slug: String! $categories: [String!]){
+       posts(
+        where: { slug_not: $slug, AND {categories_some {slug+in: $categories}}}
+        last: 3
+       ){
+        createdAt
                     slug
                     title
-                    description
                     featuredImage {
                         url
                     }
-                    categories {
-                        slug
-                        categoryName
-                    }
-                }
-            }
-        }
-    }
+       }
+         }
 ` 
     const result = await request(graphqlAPI, query)
     return result.posts
+}
