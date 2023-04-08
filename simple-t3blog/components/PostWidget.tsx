@@ -29,7 +29,7 @@ const PostWidget = ( {category, slug} ) => {
   )
   return (
     <div className=" bg-white shadow-lg rounded-lg p-8 mb-8">
-<h3>"
+<h3>
  {slug ? "Related Posts" : "Recent Posts"}
 </h3>
 {relatedPosts.map((post)=>(

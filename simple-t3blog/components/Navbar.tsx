@@ -1,13 +1,15 @@
-import {useContext} from 'react'
 import Link from "next/link";
 import Categories from './Categories';
-
-const categories = [
-    {name: 'Technology', slug: 'technology'},
-    {name: 'Business', slug: 'business'},
-
-]
+import { useState, useEffect } from "react"
+import { getCategories } from "services"
+  
 const Navbar = () => {
+    
+    useEffect(()=>{
+    getCategories()
+    .then((newCategories)=> setCategories(newCategories))
+  }, []
+  )
   return (
     <div className='container mx-auto px-10 mb-8'>Navbar
    <div className='border-b w-full inline-block border-blue-400 py-8 '>
