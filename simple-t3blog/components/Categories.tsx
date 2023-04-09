@@ -2,6 +2,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import { getCategories } from "services"
 
+// import { Categories } from '../types/Categories'
 
 const Categories = () => {
   const [categories, setCategories] = useState([])
@@ -10,6 +11,9 @@ const Categories = () => {
     .then((newCategories)=> setCategories(newCategories))
   }, []
   )
+
+  
+//  const category = ({ categories }: categories) => {
   return (
 
     <div className=" bg-white shadow-lg rounded-lg p-8 mb-8 pb-12">
@@ -31,5 +35,6 @@ const Categories = () => {
 </div>
   )
 }
+// }
 
 export default Categories
