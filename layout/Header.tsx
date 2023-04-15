@@ -1,11 +1,11 @@
-import Navbar from '../components/Navbar'
-const Header = ( {children} ) => {
+import Navbar from "../components/Navbar";
+const Header = ({ children }) => {
   return (
     <>
-<Navbar />
-{children}
+      <Navbar />
+      {children}
     </>
-  )
-}
+  );
+};
 
-export default Header  
+export default Header;
