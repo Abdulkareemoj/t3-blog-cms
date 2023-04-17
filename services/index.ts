@@ -127,3 +127,14 @@ content{
 
   return result.postsConnection.edges;
 };
+ntent{
+    raw
+}
+
+
+`
+
+    const result = await request(graphqlAPI, query, {slug})
+
+    return result.postsConnection.edges
+}
