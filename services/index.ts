@@ -58,7 +58,7 @@ url
   return result.posts;
 };
 
-export const getSimilarPosts = async () => {
+export const getSimilarPosts = async (categories, slug) => {
   const query = gql`
 query getPostDetails ($slug: String! $categories: [String!]){
 posts(
@@ -74,7 +74,7 @@ url
 }
 }
 `;
-  const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query {categories, slug});
   return result.posts;
 };
 
