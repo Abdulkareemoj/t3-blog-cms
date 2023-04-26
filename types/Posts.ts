@@ -1,5 +1,5 @@
-export interface Posts {
-  posts: Posts[];
+export interface post {
+  post: string;
   createdAt: string;
   slug: string;
   title: string;
@@ -9,7 +9,7 @@ export interface Posts {
 }
 
 export interface PostDetails {
-  posts: Posts[];
+  // posts: Posts[];
   createdAt: string;
   slug: string;
   title: string;
@@ -19,7 +19,7 @@ export interface PostDetails {
 }
 
 export interface RecentPosts {
-  posts: Posts[];
+  // posts: Posts[];
   createdAt: string;
   slug: string;
   title: string;
@@ -29,7 +29,7 @@ export interface RecentPosts {
 }
 
 export interface SimilarPosts {
-  posts: Posts[];
+  // posts: Posts[];
   createdAt: string;
   slug: string;
   title: string;

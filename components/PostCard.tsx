@@ -1,6 +1,7 @@
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
+// import  {post }from "types/Posts";
 
 const PostCard = ({ post }) => {
   return (
