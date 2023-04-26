@@ -15,12 +15,23 @@ const CommentsForm = () => {
     <h3 className="text-xl mb-8 font-semibold border-b pb-4">Comments</h3>
   <div className="grid grid-cols-1 gap-4 mb-4">
    
-    <textarea name="" id="" cols="30" rows="10">
+    <textarea ref={commentEl} 
+    className="p-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-500 text-gray-600" 
+    placeholder="Comment"
+name="comment">
 
     </textarea>
   </div>
   <div className="grid grid-cols-1 gap-4 mb-4">
+<input type="text" ref={nameEl}
+ className="py-2 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-500 text-gray-600" 
+ placeholder="Name"
+name="name"/>
 
+<input type="text" ref={emailEl}
+ className="py-2 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-500 text-gray-600" 
+ placeholder="Email"
+name="email"/>
   </div>
   <div className="grid grid-cols-1 gap-4 mb-4">
     
