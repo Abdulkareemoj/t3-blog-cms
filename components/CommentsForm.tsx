@@ -16,6 +16,8 @@ const CommentsForm = () => {
     const {value: comment} = commentEl.current,
     const {value: username} = usernameEl.current,
     const {value: email} = emailEl.current,
+    const {checked: storeData} = storeDataEl.current
+
 
      if (!comment || !username || !email )   {
        setError(true);
@@ -27,7 +29,15 @@ const CommentsForm = () => {
 // }
 
 const commentObj = {
-  name, email, comment, slug
+  username, email, comment, slug
+}
+
+if(storeData){
+  localStorage.setItem('username', username)
+  localStorage.setItem('email', email)
+}else{
+  localStorage.removeItem('username', username)
+  localStorage.removeItem('email', email)
 }
 
     } 
@@ -55,6 +65,10 @@ name="name"/>
  className="py-2 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-500 text-gray-600" 
  placeholder="Email"
 name="email"/>
+  <div className="grid grid-cols-1 gap-4 mb-4">
+    <input ref={storeData.el} type="checkbox" name="storeData" id="storeData" value="true"/>
+    <label  className="text-gray-500 cursor-pointer" htmlFor="storeData">Save my details</label>
+  </div>
   </div>
   {error && <p className="text-xs text-red-500">All fields are required</p>}
   <div className="mt-8">
