@@ -1,7 +1,26 @@
-import React from "react";
+import moment from "moment";
+import parse from "html-react-parser";
+import {useState, useEffect} from "react";
+import { getComments } from "services";
+
 
 const Comments = () => {
-  return <div></div>;
+  useEffect(() => {
+    getComments(slug)
+    .then((result) => setComments(result)
+  }, []); 
+
+  return (
+  <div>
+    comment.length > 0 && (
+      <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
+<h3 className="text-xl mb-8 font-semibold border-b pb-4">
+
+</h3>
+      </div>
+    )
+  </div>
+  );
 };
 
 export default Comments;
