@@ -40,22 +40,22 @@ export const getPosts = async () => {
 
 export const getRecentPosts = async () => {
   const query = gql`
-query getPostDetails() {
-posts(
-orderBy: createdAt_ASC,
-last: 3) {
+    query getPostDetails() {
+      posts(
+        orderBy: createdAt_ASC,
+        last: 3) {
 
-createdAt
-slug
-title
-featuredImage {
-url
-}
-}
-}
-`;
-  const result = await request(graphqlAPI, query);
-  return result.posts;
+          createdAt
+          slug
+          title
+          featuredImage {
+            url
+          }
+        }
+      }
+  `;
+const result = await request(graphqlAPI, query);
+return result.posts;
 };
 
 // export const getSimilarPosts = async (categories, slug) => {
@@ -84,8 +84,7 @@ export const getSimilarPosts = async (categories, slug) => {
     query GetPostDetails($slug: String!, $categories: [String!]) {
       posts(
         where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
-        last: 3
-      ) {
+        last: 3) {
         title
         featuredImage {
           url
@@ -115,39 +114,36 @@ export const getCategories = async () => {
 
 export const getPostDetails = async (slug) => {
   const query = gql`
-query GetPostDetails($slug: String!){   
+    query GetPostDetails($slug: String!){   
     post(where: {slug: $slug})  {  
 
-authors {
-id
-description
-name
-image {
-url
-}
-}
-createdAt
-slug
-title
-description
-featuredImage {
-url
-}
-categories {
-slug
-categoryName
-}
-}
-content{
-    raw
-}
+      authors {
+          id
+          description
+          name
+          image {
+            url
+          }
+        }
+      createdAt
+      slug
+      title
+      description
+      featuredImage {
+        url
+        }
+      categories {
+        slug
+        categoryName
+        }
+      }
+      content{
+        raw
+      }
+  `;
 
-
-`;
-
-  const result = await request(graphqlAPI, query, { slug });
-
-  return result.postsConnection.edges;
+const result = await request(graphqlAPI, query, { slug });
+return result.postsConnection.edges;
 };
 
 
