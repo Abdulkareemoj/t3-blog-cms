@@ -11,7 +11,13 @@ const CommentsForm = () => {
    const emailEl = useRef()
    const storeDataEl= useRef()
 
-  function handleCommentSubmit =()= >{
+   useEffect(() => {
+usernameEl.current.value = window.localStorage.getItem('username')
+emailEl.current.value = window.localStorage.getItem('email')
+
+   },[])
+
+const handleCommentSubmit = () = > {
     setError(false);
 
     const {value: comment} = commentEl.current
@@ -32,11 +38,11 @@ const CommentsForm = () => {
 const commentObj = { username, email, comment, slug };
 
 if(storeData){
-  localStorage.setItem('username', username)
-  localStorage.setItem('email', email)
+  window.localStorage.setItem('username', username)
+  window.localStorage.setItem('email', email)
 }else{
-  localStorage.removeItem('username', username)
-  localStorage.removeItem('email', email)
+  window.localStorage.removeItem('username', username)
+  window.localStorage.removeItem('email', email)
 }
 
 submitComment(commentObj)
