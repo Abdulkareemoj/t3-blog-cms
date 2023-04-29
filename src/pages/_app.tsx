@@ -1,15 +1,15 @@
-import { type AppType } from "next/dist/shared/lib/utils";
-import { useState, useEffect } from "react";
+import { type AppType } from 'next/dist/shared/lib/utils'
+import { useState, useEffect } from 'react'
 
-import { Header } from "../../components";
-import "../styles/globals.scss";
+import { Header } from '../../components'
+import '../styles/globals.scss'
 
 const MyApp: AppType = ({ Component, pageProps }) => {
-  return (
-    <Header>
-      <Component {...pageProps} />;
-    </Header>
-  );
-};
+    return (
+        <Header>
+            <Component {...pageProps} />;
+        </Header>
+    )
+}
 
-export default MyApp;
+export default MyApp
